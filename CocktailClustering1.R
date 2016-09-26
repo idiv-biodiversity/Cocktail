@@ -187,7 +187,7 @@ multiple.max <- 1
 # recalculating the phi similarity
 
 ### 6. cluster loop ###
-pb <- winProgressBar(title = "progress bar", min = 0, max =n-1, width = 300)
+pb <- txtProgressBar(title = "progress bar", min = 0, max =n-1, width = 300)
 while (i <= (n-2) ){
   # Calculate the whole phi distance matrix
   phi.index <- designdist(t(vegmatrix2), method = "(a*d-b*c)/sqrt((a+c)*(b+d)*(a+b)*(c+d))",
@@ -354,13 +354,13 @@ while (i <= (n-2) ){
     }
     i <- j
   }
-  setWinProgressBar(pb, i, title=paste("Cluster ",i,"of ", n-1, " is processed"))
+  setTxtProgressBar(pb, i, title=paste("Cluster ",i,"of ", n-1, " is processed"))
 }
 close(pb)
 
 # write output files for subsequent use
-write.csv(Cluster.species,"c:\\Daten\\Cocktail2.0\\Cluster_species_dune.csv",row.names=F)
-write.csv(Plot.cluster,"c:\\Daten\\Cocktail2.0\\Plot_cluster_dune.csv",row.names=F)
+write.csv(Cluster.species,"Cluster_species_dune.csv",row.names=F)
+write.csv(Plot.cluster,"Plot_cluster_dune.csv",row.names=F)
 
 ### 7. Plotting the tree of the Cocktail clustering results ###
 Species.sort <- array("",n)
