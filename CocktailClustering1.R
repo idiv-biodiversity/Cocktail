@@ -191,7 +191,7 @@ pb <- winProgressBar(title = "progress bar", min = 0, max =n-1, width = 300)
 while (i <= (n-2) ){
   # Calculate the whole phi distance matrix
   phi.index <- designdist(t(vegmatrix2), method = "(a*d-b*c)/sqrt((a+c)*(b+d)*(a+b)*(c+d))",
-                     terms = c("binary"), abcd = T, "phi")
+                     terms = c("binary"), alphagamma = FALSE, abcd = T, "phi")
   # The distance defined by phi.index gives NA if one of the factors
   # (a+c),(b+d),(a+b),(c+d) = 0,
   # which occurs if all plots have been assigned to one group
